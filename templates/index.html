@@ -11,9 +11,17 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
         </head>
     <body>
-        <main>
-            <h1>Dashboard</h1>
-        </main>
+        <section id="page">
+            <header>
+                <h1>ROI</h1>
+            </header>
+            <nav>Navigation</nav>
+            <main>
+                <canvas id="myChart" width="10" height="5"></canvas>
+            </main>
+            <footer>Footer</footer>
+        </section>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
         <script src="{{ url_for('static', filename='index.js')}}"></script>
     </body>
 </html>
