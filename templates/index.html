@@ -6,14 +6,29 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>ROI</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+        <link rel="stylesheet" href="/static/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
         </head>
     <body>
+        <header>
+            <div class='console-container'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
+        </header>
+        <aside>
+            
+        </aside>
         <main>
-            <h1>Dashboard</h1>
+            <div id="chart">test</div>
+            <div id="sum1">test</div>
+            <div id="sum2">test</div>
+            <div id="sum3">test</div>
         </main>
+        
+        <footer>
+            
+        </footer>
+        <script src="/static/index.js"></script>
         <script src="{{ url_for('static', filename='index.js')}}"></script>
     </body>
 </html>
