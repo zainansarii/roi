@@ -1,5 +1,5 @@
 // function([string1, string2],target id,[color1,color2])    
-consoleText(['choose an index', 'define a strategy', 'calculate ROI'], 'text',['darkseagreen','darksalmon','lightblue']);
+consoleText(['choose an index', 'define a strategy', 'calculate your returns'], 'text',['darkseagreen','darksalmon','lightblue']);
 
 function consoleText(words, id, colors) {
   if (colors === undefined) colors = ['#fff'];
