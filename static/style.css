@@ -3,9 +3,17 @@
   margin: 0;
   font-family: "Poppins", sans-serif;
   color: whitesmoke;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  grid-template-rows: 10vw 50vw 5vw;
+  grid-gap: 1em;
   background-color: #1f2135;
 }
 
+<<<<<<< HEAD
 #page {
   display: grid;
   width: 100%;
@@ -35,3 +43,84 @@ footer {
   background-color: red;
   grid-area: foot;
 }
+=======
+main {
+  display: grid;
+  padding: 1em;
+  grid-template-rows: 3fr 2fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1em;
+}
+
+header,
+footer {
+  grid-column: 1 / span 2;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 90em;
+  padding: 1em 0;
+}
+
+header,
+main,
+aside,
+footer {
+  background: #7d6fa2;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  justify-content: center;
+  align-items: center;
+}
+
+#chart {
+  grid-row: 1;
+  grid-column: 1 / span 3;
+  height: 100%;
+  background-color: #1f2135;
+}
+
+#sum1 {
+  height: 100%;
+  background-color: #1f2135;
+}
+
+#sum2 {
+  height: 100%;
+  background-color: #1f2135;
+}
+
+#sum3 {
+  height: 100%;
+  background-color: #1f2135;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Khula:700);
+
+.hidden {
+  opacity: 0;
+}
+.console-container {
+  font-family: Khula;
+  font-size: 7em;
+  text-align: center;
+  display: flex;
+  position: relative;
+  color: white;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.console-underscore {
+  display: inline-block;
+  position: relative;
+  top: -0.14em;
+  left: 10px;
+}
+>>>>>>> 13f9a211c3e7a459494143868cf19389d0118b46
