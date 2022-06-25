@@ -1,6 +1,49 @@
-// function([string1, string2],target id,[color1,color2])    
 consoleText(['choose an index', 'define a strategy', 'calculate your returns'], 'text',['darkseagreen','darksalmon','lightblue']);
 
+var myData = document.getElementById("data").textContent;
+console.log(JSON.parse(myData))
+console.log(typeof JSON.parse(myData))
+
+const labels = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+];
+
+const data = {
+  labels: labels,
+  datasets: [{
+    label: 'My First dataset',
+    backgroundColor: 'rgb(255, 99, 132)',
+    borderColor: 'rgb(255, 99, 132)',
+    data: [0, 10, 5, 2, 20, 30, 45],
+  }]
+};
+
+const config = {
+  type: 'line',
+  data: data,
+  options: {
+    layout: {
+      padding: {
+        left: 50,
+        right: 50,
+        top: 50,
+        bottom: 50
+      }
+    }
+  }
+};
+
+const myChart = new Chart(
+  document.getElementById('myChart'),
+  config
+);
+
+// function([string1, string2],target id,[color1,color2])    
 function consoleText(words, id, colors) {
   if (colors === undefined) colors = ['#fff'];
   var visible = true;

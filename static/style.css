@@ -8,8 +8,12 @@
 body {
   display: grid;
   height: 100vh;
+  margin-left: 10%;
+  margin-right: 10%;
+  min-width: 1500px;
+  max-width: 2000px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: .2fr 1.5fr 1.2fr 0.8fr;
+  grid-template-rows: 80px 520px 380px 220px;
   grid-template-areas: 
   "header header header header"
   "sidebar main main main"
@@ -24,7 +28,7 @@ header{
 }
 
 main{
-  background-color: rgb(26, 173, 129);
+  background-color: rgb(179, 194, 219);
   grid-area: main;
 }
 
