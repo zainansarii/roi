@@ -33,27 +33,27 @@ main {
 }
 
 #sidebar {
-  background-color: rgb(101, 161, 52);
+  background-color: #32344b;
   grid-area: sidebar;
 }
 
 #sum1 {
-  background-color: rgb(141, 38, 132);
+  background-color: #32344b;
   grid-area: sum1;
 }
 
 #sum2 {
-  background-color: rgb(163, 143, 50);
+  background-color: #32344b;
   grid-area: sum2;
 }
 
 #sum3 {
-  background-color: rgb(79, 78, 146);
+  background-color: #32344b;
   grid-area: sum3;
 }
 
 footer {
-  background-color: rgb(140, 175, 84);
+  background-color: #32344b;
   grid-area: footer;
 }
 
