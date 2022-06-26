@@ -1,47 +1,45 @@
 consoleText(['choose an index', 'define a strategy', 'calculate your returns'], 'text',['darkseagreen','darksalmon','lightblue']);
 
-var myData = document.getElementById("data").textContent;
-console.log(JSON.parse(myData))
-console.log(typeof JSON.parse(myData))
+// var jsonfile = {
+//   "jsonarray": [{
+//      "name": "Joe",
+//      "age": 12
+//   }, {
+//      "name": "Tom",
+//      "age": 14
+//   }]
+// };
 
-const labels = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-];
+// var labels = jsonfile.jsonarray.map(function(e) {
+//   return e.name;
+// });
+// var data = jsonfile.jsonarray.map(function(e) {
+//   return e.age;
+// });;
 
-const data = {
-  labels: labels,
-  datasets: [{
-    label: 'My First dataset',
-    backgroundColor: 'rgb(255, 99, 132)',
-    borderColor: 'rgb(255, 99, 132)',
-    data: [0, 10, 5, 2, 20, 30, 45],
-  }]
-};
+// var config = {
+//   type: 'line',
+//   data: {
+//      labels: labels,
+//      datasets: [{
+//         label: 'Graph Line',
+//         data: data,
+//         backgroundColor: 'rgba(0, 119, 204, 0.3)'
+//      }]
+//   },
+//   options: {
+//     layout: {
+//       padding: {
+//         left: 50,
+//         right: 50,
+//         top: 25,
+//         bottom: 25
+//       }
+//     }
+//   }
+// };
 
-const config = {
-  type: 'line',
-  data: data,
-  options: {
-    layout: {
-      padding: {
-        left: 50,
-        right: 50,
-        top: 50,
-        bottom: 50
-      }
-    }
-  }
-};
-
-const myChart = new Chart(
-  document.getElementById('myChart'),
-  config
-);
+// var chart = new Chart(document.getElementById('myChart'), config);
 
 // function([string1, string2],target id,[color1,color2])    
 function consoleText(words, id, colors) {

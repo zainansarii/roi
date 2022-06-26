@@ -10,49 +10,49 @@ body {
   height: 100vh;
   margin-left: 10%;
   margin-right: 10%;
-  min-width: 1500px;
-  max-width: 2000px;
+
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 80px 520px 380px 220px;
-  grid-template-areas: 
-  "header header header header"
-  "sidebar main main main"
-  "sidebar sum1 sum2 sum3"
-  "footer footer footer footer";
-  grid-gap: .5em;
+  grid-template-areas:
+    "header header header header"
+    "sidebar main main main"
+    "sidebar sum1 sum2 sum3"
+    "footer footer footer footer";
+  grid-gap: 0.5em;
   background-color: #1f2135;
 }
 
-header{
+header {
   grid-area: header;
 }
 
-main{
-  background-color: rgb(179, 194, 219);
+main {
+  background-color: #32344b;
+  border-radius: 10px;
   grid-area: main;
 }
 
-#sidebar{
+#sidebar {
   background-color: rgb(101, 161, 52);
   grid-area: sidebar;
 }
 
-#sum1{
+#sum1 {
   background-color: rgb(141, 38, 132);
   grid-area: sum1;
 }
 
-#sum2{
+#sum2 {
   background-color: rgb(163, 143, 50);
   grid-area: sum2;
 }
 
-#sum3{
+#sum3 {
   background-color: rgb(79, 78, 146);
   grid-area: sum3;
 }
 
-footer{
+footer {
   background-color: rgb(140, 175, 84);
   grid-area: footer;
 }
@@ -64,7 +64,7 @@ footer{
 }
 .console-container {
   font-family: Khula;
-  font-size:5vh;
+  font-size: 4rem;
   text-align: center;
   justify-content: left;
   display: flex;
@@ -83,17 +83,17 @@ footer{
   left: 10px;
 }
 
-@media only screen and (max-width:550px){
-  body{
+@media only screen and (max-width: 550px) {
+  body {
     grid-template-columns: 1fr;
-    grid-template-rows: .4fr, .4fr, 2.2fr, 1.2fr, 1.2fr, 1.2fr, 1fr;
-    grid-template-areas: 
-    "header"
-    "sidebar"
-    "main"
-    "sum1"
-    "sum2"
-    "sum3"
-    "footer";
+    grid-template-rows: 0.4fr, 0.4fr, 2.2fr, 1.2fr, 1.2fr, 1.2fr, 1fr;
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "main"
+      "sum1"
+      "sum2"
+      "sum3"
+      "footer";
   }
 }

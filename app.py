@@ -1,14 +1,27 @@
 from flask import Flask, render_template
 import pandas as pd
+import numpy as np
+import yfinance as yf
+from datetime import datetime as dt
+from datetime import timedelta 
+from dateutil.relativedelta import relativedelta
 
-
-data = {'col_1': [0,1,2,3], 'col_2': ['john', 'jess', 'james', 'jill']}
-df = pd.DataFrame(data).set_index('col_1', drop=True)
 app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return render_template("index.html", df=df)
+    # get S&P500 data (1980 - current)
+    current_date = dt.strftime(dt.today().date(), format="%Y-%m-%d")
+    df_sp = yf.download (tickers = "^GSPC", start = "2000-01-01", 
+                                end = current_date, interval = "1d")
+    df_sp = df_sp['Adj Close']
+    # df_sp.index = df_sp.index.map(str)
+    data =  list(zip(df_sp.index, df_sp.astype(int)))
+
+    labels = [row[0] for row in data]
+    values = [row[1] for row in data]
+
+    return render_template("index.html", labels=labels, values=values)
 
 if __name__ == "__main__":
     app.run()

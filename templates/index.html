@@ -6,28 +6,67 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>ROI</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
-        <!-- <link rel="stylesheet" href="../static/style.css"> -->
+        <link rel="stylesheet" href="../static/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
         </head>
     <body>
         <header>
             <div class='console-container'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
         </header>
         <main>
-            <div hidden id="data">{{df}}</div>
-            <div>
-              <canvas id="myChart" style="max-height: 500px;"></canvas>
-            </div>
+            <canvas id="mainChart"></canvas>
+            <script>
+                // https://stackoverflow.com/questions/61018709/how-to-display-datetime-list-in-graph-using-chart-js
+                var dayFormat = 'YYYY-MM-DD';
+                function newDateString(year, month, day) {
+                return moment().year(year).month(month).date(day).format(dayFormat);
+                };
+                var ctx =  document.getElementById("mainChart").getContext("2d");
+                Chart.defaults.font.size = 14;
+                var mainChart = new Chart(ctx, {
+                    type:  "line",
+                    data: {
+                        labels: [   {% for item in labels %}
+                        newDateString( {{ item.year }}, 
+                                       {{ item.month - 1 }}, 
+                                       {{ item.day }}
+                                     ),
+                                    {% endfor %}
+                                ],
+                        datasets: [
+                            {
+                                label: "S&P500 Index",
+                                data:{{ values | safe }},
+                                fill: false,
+                                borderColor: "rgb(75,192,192)",
+                                linetension: 0.1,
+                                pointRadius:1
+                            }
+                        ]
+                    },
+                    options: {
+                    layout: {
+                        padding: {
+                            left: 50,
+                            right: 50,
+                            top: 25,
+                            bottom: 25
+                            }
+                        }
+                    }
+                })
+            </script>
         </main>
         <div id="sidebar">sidebar</div>
         <div id="sum1">test1</div>
         <div id="sum2">test2</div>
         <div id="sum3">test3</div>      
         <footer>footer</footer>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <!-- <script src="../static/index.js"></script> -->
+        <script src="../static/index.js"></script>
         <script src="{{ url_for('static', filename='index.js')}}"></script>
     </body>
 </html>
