@@ -28,32 +28,37 @@ header {
 
 main {
   background-color: #32344b;
-  border-radius: 10px;
+  border-radius: 20px;
   grid-area: main;
 }
 
 #sidebar {
   background-color: #32344b;
+  border-radius: 20px;
   grid-area: sidebar;
 }
 
 #sum1 {
   background-color: #32344b;
+  border-radius: 20px;
   grid-area: sum1;
 }
 
 #sum2 {
   background-color: #32344b;
+  border-radius: 20px;
   grid-area: sum2;
 }
 
 #sum3 {
   background-color: #32344b;
+  border-radius: 20px;
   grid-area: sum3;
 }
 
 footer {
   background-color: #32344b;
+  border-radius: 20px;
   grid-area: footer;
 }
 

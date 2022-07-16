@@ -63,57 +63,45 @@
             </script>
         </main>
         <div id="sidebar">
-            <!-- <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                    Index
-                </button>
-                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="dropdownMenuButton2">
-                    <li><a class="dropdown-item" href="#">S&P500</a></li>
-                    <li><a class="dropdown-item" href="#">Dow 30</a></li>
-                    <li><a class="dropdown-item" href="#">Nasdaq</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">FTSE 100</a></li>
-                    <li><a class="dropdown-item" href="#">FTSE 250</a></li>
-                </ul>
-            </div><br> -->
-            <label for="formGroupExampleInput" class="form-label">Index</label><br>
+            <label for="indexInput" class="form-label">Index</label><br>
             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                <label class="btn btn-outline-light for="btnradio1">S&P 500</label>
+                <input type="radio" class="btn-check" name="index" id="indexbtn1" value="s&p500">
+                <label class="btn btn-outline-light" for="indexbtn1">S&P 500</label>
               
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                <label class="btn btn-outline-light" for="btnradio2">Nasdaq</label>
+                <input type="radio" class="btn-check" name="index" id="indexbtn2" value="nasdaq">
+                <label class="btn btn-outline-light" for="indexbtn2">Nasdaq</label>
               
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                <label class="btn btn-outline-light" for="btnradio3">FTSE 100</label>
+                <input type="radio" class="btn-check" name="index" id="indexbtn3" value="ftse100">
+                <label class="btn btn-outline-light" for="indexbtn3">FTSE 100</label>
             </div><br><br>
-            <label for="formGroupExampleInput" class="form-label">Initial Deposit ($)</label><br>
+            <label for="intervalInput" class="form-label">Deposit Interval</label><br>
             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                <label class="btn btn-outline-light for="btnradio1">Daily</label>
+                <input type="radio" class="btn-check" name="interval" id="intervalbtn1" value="daily">
+                <label class="btn btn-outline-light" for="intervalbtn1">Daily</label>
               
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                <label class="btn btn-outline-light" for="btnradio2">Weekly</label>
+                <input type="radio" class="btn-check" name="interval" id="intervalbtn2" value="weekly">
+                <label class="btn btn-outline-light" for="intervalbtn2">Weekly</label>
               
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                <label class="btn btn-outline-light" for="btnradio3">Monthly</label>
+                <input type="radio" class="btn-check" name="interval" id="intervalbtn3" value="monthly">
+                <label class="btn btn-outline-light" for="intervalbtn3">Monthly</label>
             </div><br><br>
-            <div class="mb-3" style="width: 50%;">
-                <label for="formGroupExampleInput" class="form-label">Initial Deposit ($)</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="1000">
+            <div class="mb-3" style="width: 60%;">
+                <label for="initialDeposit" class="form-label">Initial Deposit ($)</label>
+                <input type="text" class="form-control" id="initialDeposit" placeholder="1000">
             </div>
-            <div class="mb-3" style="width: 50%;">
-                <label for="formGroupExampleInput2" class="form-label">Recurring Deposit ($)</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="500">
+            <div class="mb-3" style="width: 60%;">
+                <label for="recurringDeposit" class="form-label">Recurring Deposit ($)</label>
+                <input type="text" class="form-control" id="recurringDeposit" placeholder="500">
             </div>
-            <div class="mb-3" style="width: 50%;">
-                <label for="formGroupExampleInput2" class="form-label">Start Date</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="DD/MM/YYYY">
+            <div class="mb-3" style="width: 60%;">
+                <label for="startDate" class="form-label">Start Date</label>
+                <input type="text" class="form-control" id="startDate" placeholder="DD/MM/YYYY">
             </div>
-            <div class="mb-3" style="width: 50%;">
-                <label for="formGroupExampleInput2" class="form-label">End Date</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="DD/MM/YYYY">
-            </div>
+            <div class="mb-3" style="width: 60%;">
+                <label for="endDate" class="form-label">End Date</label>
+                <input type="text" class="form-control" id="endDate" placeholder="DD/MM/YYYY">
+            </div><br>
+            <button type="button" class="btn btn-primary" id="submit">Calculate ROI</button>
         </div>
         <div id="sum1">test1</div>
         <div id="sum2">test2</div>
@@ -123,4 +111,15 @@
         <script src="{{ url_for('static', filename='index.js')}}"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     </body>
+    <script>
+        document.getElementById("submit").onclick = function getInputData(){
+            let index = document.querySelector('input[name="index"]:checked').value
+            let interval = document.querySelector('input[name="interval"]:checked').value
+            let initialDeposit = document.querySelector('input[id="initialDeposit"]').value
+            let recurringDeposit = document.querySelector('input[id="recurringDeposit"]').value
+            let startDate = document.querySelector('input[id="startDate"]').value
+            let endDate = document.querySelector('input[id="endDate"]').value
+            //https://www.codespeedy.com/how-to-pass-javascript-variables-to-python-in-flask/
+        }
+    </script>
 </html>
